@@ -1,0 +1,23 @@
+<!doctype html>
+<html lang="en" class="dark">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="description" content="Personal Cover Page" />
+    <title>Personal Cover Page</title>
+    <script type="module" crossorigin src="/caproomy_cover_pages/assets/index-N4b8rj_C.js"></script>
+    <link rel="stylesheet" crossorigin href="/caproomy_cover_pages/assets/index-D7tixx0Y.css">
+  </head>
+  <body>
+    <script>
+      (function () {
+        var redirect = sessionStorage.redirect;
+        delete sessionStorage.redirect;
+        if (redirect && redirect !== location.href) {
+          history.replaceState(null, "", redirect);
+        }
+      })();
+    </script>
+    <div id="root"></div>
+  </body>
+</html>
