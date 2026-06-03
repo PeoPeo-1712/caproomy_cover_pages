@@ -7,7 +7,7 @@ import { fileURLToPath } from "node:url";
 const rootDir = path.dirname(fileURLToPath(import.meta.url));
 
 export default defineConfig({
-  base: "/",
+  base: process.env.VITE_BASE_PATH || "/caproomy_cover_pages/",
   plugins: [react(), tailwindcss()],
   resolve: {
     alias: {
