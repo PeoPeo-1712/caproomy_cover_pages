@@ -9,6 +9,12 @@ function cloneProfile(profile) {
   return JSON.parse(JSON.stringify(profile));
 }
 
+function normalizeAssetUrl(url) {
+  if (typeof url !== "string") return url;
+  if (!url.startsWith("/images/")) return url;
+  return `${import.meta.env.BASE_URL}${url.slice(1)}`;
+}
+
 function normalizeProfile(profile = {}) {
   const merged = {
     ...cloneProfile(defaultCoverProfile),
@@ -18,7 +24,12 @@ function normalizeProfile(profile = {}) {
 
   return {
     ...merged,
-    portraitUrl: merged.portraitUrl || merged.portrait || defaultCoverProfile.portraitUrl,
+    portraitUrl: normalizeAssetUrl(merged.portraitUrl || merged.portrait || defaultCoverProfile.portraitUrl),
+    avatarUrl: normalizeAssetUrl(merged.avatarUrl),
+    gallery: merged.gallery.map((item) => ({
+      ...item,
+      imageUrl: normalizeAssetUrl(item.imageUrl),
+    })),
   };
 }
 

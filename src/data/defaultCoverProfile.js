@@ -1,3 +1,5 @@
+const publicAsset = (path) => `${import.meta.env.BASE_URL}${path.replace(/^\//, "")}`;
+
 export const defaultCoverProfile = {
   name: "Nguyen Cat Tuong",
   displayName: "Your Name",
@@ -19,7 +21,7 @@ export const defaultCoverProfile = {
   playlistDuration: "4:21",
   dreamMeter: 88,
   vibeScore: 99,
-  portraitUrl: "/images/profile-cutout.png",
+  portraitUrl: publicAsset("images/profile-cutout.png"),
   avatarUrl: "",
   accent: "pink",
   stats: { era: "Pink Era", focus: "Dreams", energy: "Soft" },
